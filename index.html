@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Come scrivere il profilo MioDottore per essere trovati dall'IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F0;
+    --white: #FFFFFF;
+    --ink: #1A1916;
+    --ink-muted: #6B6860;
+    --ink-faint: #9E9C97;
+    --accent: #1D6A4A;
+    --accent-light: #E8F3EE;
+    --accent-mid: #2A8A60;
+    --danger: #B03A2E;
+    --danger-light: #FAEAE8;
+    --border: #E2DED6;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* Header */
+  header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 2.5rem 2rem 2rem;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-light);
+    border: 1px solid #C2DDD1;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+  .intro {
+    font-size: 1rem;
+    color: var(--ink-muted);
+    max-width: 580px;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  .why-box {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.875rem;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .why-box strong { color: var(--accent); font-weight: 500; }
+
+  /* Nav tabs */
+  .nav-wrap {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  nav {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  nav::-webkit-scrollbar { display: none; }
+  .nav-link {
+    display: block;
+    padding: 1rem 1.1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--ink-muted);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: all 0.15s;
+    letter-spacing: 0.01em;
+  }
+  .nav-link:hover { color: var(--ink); }
+  .nav-link.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* Main */
+  main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 2rem 2rem 4rem;
+  }
+
+  section {
+    display: none;
+    animation: fadeIn 0.2s ease;
+  }
+  section.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-lead {
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+    margin-bottom: 2rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.7;
+  }
+
+  /* Rules grid */
+  .rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  @media (max-width: 560px) { .rules-grid { grid-template-columns: 1fr; } }
+  .rule-card {
+    padding: 1.25rem;
+    border-radius: 12px;
+    border: 1px solid transparent;
+  }
+  .rule-card.do { background: var(--accent-light); border-color: #C2DDD1; }
+  .rule-card.dont { background: var(--danger-light); border-color: #ECC5C0; }
+  .rule-tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .rule-card.do .rule-tag { color: var(--accent); }
+  .rule-card.dont .rule-tag { color: var(--danger); }
+  .rule-dot { width: 6px; height: 6px; border-radius: 50%; }
+  .rule-card.do .rule-dot { background: var(--accent); }
+  .rule-card.dont .rule-dot { background: var(--danger); }
+  .rule-card h3 { font-size: 0.9rem; font-weight: 500; margin-bottom: 0.4rem; color: var(--ink); }
+  .rule-card p { font-size: 0.825rem; color: var(--ink-muted); line-height: 1.55; }
+
+  /* Steps */
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-body h3 { font-size: 0.95rem; font-weight: 500; color: var(--ink); margin-bottom: 0.3rem; }
+  .step-body p { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.6; }
+  .step-example {
+    margin-top: 0.75rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    color: var(--ink);
+    line-height: 1.6;
+    font-style: italic;
+  }
+  .step-example::before {
+    content: 'Esempio: ';
+    font-style: normal;
+    font-weight: 500;
+    color: var(--accent);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* Examples */
+  .ex-toggle {
+    display: flex;
+    gap: 0;
+    margin-bottom: 0;
+    border: 1px solid var(--border);
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+  }
+  .ex-btn {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    font-family: var(--sans);
+    cursor: pointer;
+    border: none;
+    background: var(--bg);
+    color: var(--ink-muted);
+    transition: all 0.15s;
+  }
+  .ex-btn + .ex-btn { border-left: 1px solid var(--border); }
+  .ex-btn.active-bad { background: var(--danger-light); color: var(--danger); }
+  .ex-btn.active-good { background: var(--accent-light); color: var(--accent); }
+  .ex-content {
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    padding: 1.25rem;
+    background: var(--white);
+    font-size: 0.875rem;
+    line-height: 1.75;
+    color: var(--ink);
+    min-height: 160px;
+  }
+  .hi-bad { background: rgba(176,58,46,0.1); border-radius: 3px; padding: 0 3px; }
+  .hi-good { background: rgba(29,106,74,0.12); border-radius: 3px; padding: 0 3px; }
+  .score-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+  .score-label { font-size: 0.75rem; color: var(--ink-faint); min-width: 100px; }
+  .score-track { flex: 1; height: 5px; background: var(--bg); border-radius: 3px; overflow: hidden; }
+  .score-fill { height: 100%; border-radius: 3px; }
+  .score-fill.low { background: var(--danger); width: 18%; }
+  .score-fill.high { background: var(--accent); width: 87%; }
+  .score-num { font-size: 0.8rem; font-weight: 500; min-width: 48px; text-align: right; }
+  .score-num.low { color: var(--danger); }
+  .score-num.high { color: var(--accent); }
+  .ex-note {
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+  }
+
+  /* Checklist */
+  .check-group { margin-bottom: 2rem; }
+  .check-group-title {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.75rem;
+  }
+  .check-list { display: flex; flex-direction: column; gap: 0; }
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.875rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .check-item:last-child { border-bottom: none; }
+  .check-ico {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .check-ico.ok { background: var(--accent-light); color: var(--accent); border: 1px solid #C2DDD1; }
+  .check-ico.ko { background: var(--danger-light); color: var(--danger); border: 1px solid #ECC5C0; }
+
+  /* Signals */
+  .signal-section { margin-bottom: 2rem; }
+  .signal-title {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.75rem;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font-size: 0.8rem;
+    font-weight: 400;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+  }
+  .chip.pos { background: var(--accent-light); color: var(--accent); border-color: #C2DDD1; }
+  .chip.neg { background: var(--danger-light); color: var(--danger); border-color: #ECC5C0; }
+  .insight-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    font-size: 0.875rem;
+    color: var(--ink);
+    line-height: 1.7;
+    margin-top: 1.5rem;
+  }
+  .insight-box strong { font-weight: 500; color: var(--ink); }
+
+  /* Footer */
+  footer {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  footer strong { color: var(--ink-muted); font-weight: 500; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">Guida pratica · MioDottore</div>
+  <h1>Come scrivere il profilo<br>che l'intelligenza artificiale trova</h1>
+  <p class="intro">
+    ChatGPT, Google Gemini e altri assistenti AI vengono usati ogni giorno da pazienti che cercano uno specialista. Questa guida spiega come ottimizzare la descrizione del tuo profilo per essere citato nelle loro risposte.
+  </p>
+  <div class="why-box">
+    <strong>Perché conta:</strong> i modelli di IA non funzionano come i motori di ricerca tradizionali. Non cercano parole chiave: leggono, capiscono il contesto e selezionano il profilo che risponde meglio alla domanda specifica del paziente. Un profilo vago semplicemente non viene considerato.
+  </div>
+</header>
+
+<div class="nav-wrap">
+  <nav>
+    <a href="#" class="nav-link active" onclick="showSection('panoramica', this)">Panoramica</a>
+    <a href="#" class="nav-link" onclick="showSection('struttura', this)">Come strutturarlo</a>
+    <a href="#" class="nav-link" onclick="showSection('esempi', this)">Esempi a confronto</a>
+    <a href="#" class="nav-link" onclick="showSection('checklist', this)">Checklist</a>
+    <a href="#" class="nav-link" onclick="showSection('segnali', this)">Cosa conta per l'IA</a>
+  </nav>
+</div>
+
+<main>
+
+  <section id="panoramica" class="active">
+    <p class="section-lead">
+      Le regole fondamentali. Il principio di base è semplice: scrivi per un lettore intelligente che non ti conosce e deve capire, in 30 secondi, se sei la persona giusta per quel paziente.
+    </p>
+    <div class="rules-grid">
+      <div class="rule-card do">
+        <div class="rule-tag"><span class="rule-dot"></span> Da fare</div>
+        <h3>Usa frasi complete e specifiche</h3>
+        <p>L'IA legge come un essere umano. Frasi contestuali comunicano molto più di elenchi di parole isolate.</p>
+      </div>
+      <div class="rule-card dont">
+        <div class="rule-tag"><span class="rule-dot"></span> Da evitare</div>
+        <h3>Elenchi di parole chiave senza contesto</h3>
+        <p>"Cardiologo, ECG, Holter, Roma" non dice nulla di utile a un sistema che cerca di capire chi sei davvero.</p>
+      </div>
+      <div class="rule-card do">
+        <div class="rule-tag"><span class="rule-dot"></span> Da fare</div>
+        <h3>Nomina le condizioni che tratti</h3>
+        <p>Il paziente cerca "dermatologo per acne adulti Roma", non "dermatologo Roma". Sii specifico sulle patologie.</p>
+      </div>
+      <div class="rule-card dont">
+        <div class="rule-tag"><span class="rule-dot"></span> Da evitare</div>
+        <h3>Tono solo promozionale</h3>
+        <p>"Il migliore della città" o "massima professionalità" non sono informazioni. I modelli di IA le ignorano.</p>
+      </div>
+      <div class="rule-card do">
+        <div class="rule-tag"><span class="rule-dot"></span> Da fare</div>
+        <h3>Indica dove sei e come sei raggiungibile</h3>
+        <p>Quartiere preciso, disponibilità online, tempi di attesa. Sono filtri usatissimi dai pazienti nelle loro ricerche.</p>
+      </div>
+      <div class="rule-card dont">
+        <div class="rule-tag"><span class="rule-dot"></span> Da evitare</div>
+        <h3>Testo generico e replicabile</h3>
+        <p>Se la tua descrizione potrebbe appartenere a qualsiasi altro profilo simile, l'IA non ha motivo di scegliere il tuo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="struttura">
+    <p class="section-lead">
+      Segui questa sequenza: ogni blocco aggiunge un livello di contesto che l'IA può usare per abbinarti alla domanda giusta. Non è necessario seguirla alla lettera, ma assicurati che tutti gli elementi ci siano.
+    </p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Chi sei, in modo inequivocabile</h3>
+          <p>Prima frase: specializzazione, eventuale sotto-specializzazione e contesto geografico. Deve essere chiaro subito, senza doverlo dedurre.</p>
+          <div class="step-example">
+            "Cardiologa specializzata in cardiologia preventiva e scompenso cardiaco, attiva a Torino Crocetta."
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Cosa tratti: condizioni specifiche, non solo branche</h3>
+          <p>Nomina le patologie e le condizioni che gestisci. È esattamente quello che il paziente cerca. "Mi occupo di dermatologia" non basta: scrivi "acne, rosacea, psoriasi, dermatite atopica, controllo nei."</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Come lavori: approccio e metodi concreti</h3>
+          <p>Tecnologie che usi, formazione specifica, eventuali approcci integrati. Evita aggettivi vaghi come "accurato" o "empatico": descrivi cosa fai in modo diverso o più approfondito rispetto ad altri.</p>
+          <div class="step-example">
+            "Utilizzo dermoscopia digitale per il monitoraggio nel tempo dei nevi e, dove indicato, affianco al trattamento farmacologico un percorso di gestione dello stile di vita."
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>Per chi: il profilo del tuo paziente</h3>
+          <p>Adulti, bambini, anziani, sportivi, donne in gravidanza, pazienti con patologie croniche. Questo aiuta l'IA ad abbinare il tuo profilo alla domanda giusta.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <h3>Logistica: zona, modalità, tempi</h3>
+          <p>Quartiere specifico (non solo la città), se accetti visite online, se sei disponibile in tempi brevi. Queste informazioni compaiono spesso nelle ricerche dei pazienti.</p>
+          <div class="step-example">
+            "Lo studio si trova a Roma Prati, con accesso facilitato. Sono disponibile anche per consulti online. I tempi di attesa per la prima visita sono mediamente entro una settimana."
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <h3>Lunghezza: tra 150 e 300 parole</h3>
+          <p>Abbastanza per dare contesto completo, abbastanza conciso da essere letto. Scrivi in paragrafi brevi, preferibilmente in prosa fluida. Evita elenchi puntati nel corpo principale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="esempi">
+    <p class="section-lead">
+      Lo stesso profilo, due versioni. Clicca per confrontarle. Le parti evidenziate mostrano i segnali che l'IA legge — o ignora.
+    </p>
+    <div class="ex-toggle">
+      <button class="ex-btn active-bad" id="btn-bad" onclick="switchEx('bad')">Versione da evitare</button>
+      <button class="ex-btn" id="btn-good" onclick="switchEx('good')">Versione ottimizzata</button>
+    </div>
+    <div class="ex-content" id="ex-content">
+      <div id="ex-bad">
+        "Dermatologa con <span class='hi-bad'>esperienza ventennale</span>. Mi occupo di <span class='hi-bad'>tutta la dermatologia</span>. Studio <span class='hi-bad'>ben attrezzato</span> nel <span class='hi-bad'>centro di Roma</span>. <span class='hi-bad'>Massima professionalità e cura del paziente</span>. Prezzi competitivi. Contattare per appuntamento."
+        <div class="score-row">
+          <span class="score-label">Rilevanza stimata per l'IA</span>
+          <div class="score-track"><div class="score-fill low"></div></div>
+          <span class="score-num low">18 / 100</span>
+        </div>
+      </div>
+      <div id="ex-good" style="display:none;">
+        "Dermatologa specializzata in <span class='hi-good'>dermatologia clinica ed estetica</span>, con focus su <span class='hi-good'>acne, rosacea, psoriasi e dermatiti atopiche</span>. Lo studio è a <span class='hi-good'>Roma Prati</span>, facilmente accessibile. Effettuo <span class='hi-good'>mappatura dei nei con dermoscopia digitale</span> e visite di controllo dermatologico completo. Seguo sia adulti che <span class='hi-good'>pazienti pediatrici</span> con patologie croniche della pelle. Disponibile anche per <span class='hi-good'>consulti online</span>. Parlo italiano e inglese. I tempi di attesa per la prima visita sono mediamente <span class='hi-good'>entro 7 giorni</span>."
+        <div class="score-row">
+          <span class="score-label">Rilevanza stimata per l'IA</span>
+          <div class="score-track"><div class="score-fill high"></div></div>
+          <span class="score-num high">87 / 100</span>
+        </div>
+      </div>
+    </div>
+    <p class="ex-note">Le evidenziazioni in rosso indicano segnali deboli o assenti per l'IA. In verde, segnali forti che aumentano la probabilità di essere citati.</p>
+  </section>
+
+  <section id="checklist">
+    <p class="section-lead">
+      Prima di pubblicare o aggiornare la descrizione, verifica che questi elementi siano presenti. Più voci spunti, più il profilo è efficace per le ricerche via IA.
+    </p>
+    <div class="check-group">
+      <div class="check-group-title">Elementi da includere</div>
+      <div class="check-list">
+        <div class="check-item"><div class="check-ico ok">✓</div><div>Specializzazione e sotto-specializzazione esplicite, non solo il titolo generico</div></div>
+        <div class="check-item"><div class="check-ico ok">✓</div><div>Almeno 3–5 condizioni o patologie trattate, nominate per esteso</div></div>
+        <div class="check-item"><div class="check-ico ok">✓</div><div>Zona geografica precisa: quartiere o zona della città, non solo il comune</div></div>
+        <div class="check-item"><div class="check-ico ok">✓</div><div>Profilo paziente: età, esigenze particolari, casi di routine o complessi</div></div>
+        <div class="check-item"><div class="check-ico ok">✓</div><div>Almeno un'informazione logistica: tempi di attesa, visite online, accessibilità</div></div>
+        <div class="check-item"><div class="check-ico ok">✓</div><div>Eventuali lingue parlate oltre all'italiano</div></div>
+        <div class="check-item"><div class="check-ico ok">✓</div><div>Testo in prosa leggibile, non solo una lista di termini</div></div>
+      </div>
+    </div>
+    <div class="check-group">
+      <div class="check-group-title">Segnali di allarme: riscrivi se presenti</div>
+      <div class="check-list">
+        <div class="check-item"><div class="check-ico ko">✗</div><div>Frasi come "il migliore", "esperienza pluriennale", "leader nel settore" senza contesto concreto</div></div>
+        <div class="check-item"><div class="check-ico ko">✗</div><div>Elenchi di parole chiave separate da virgole senza una frase che le contestualizzi</div></div>
+        <div class="check-item"><div class="check-ico ko">✗</div><div>Testo sotto le 80 parole: troppo poco per costruire contesto utile per l'IA</div></div>
+        <div class="check-item"><div class="check-ico ko">✗</div><div>Nessuna menzione di condizioni o patologie specifiche</div></div>
+        <div class="check-item"><div class="check-ico ko">✗</div><div>Nessun riferimento geografico specifico</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="segnali">
+    <p class="section-lead">
+      Questi sono i fattori che i modelli di IA pesano quando devono rispondere a una domanda del tipo "trovo uno specialista a Roma che…".
+    </p>
+    <div class="signal-section">
+      <div class="signal-title">Segnali che aumentano la rilevanza</div>
+      <div class="chips">
+        <span class="chip pos">Condizioni specifiche nominate</span>
+        <span class="chip pos">Zona geografica precisa</span>
+        <span class="chip pos">Profilo del paziente tipo</span>
+        <span class="chip pos">Tecnologie o strumenti usati</span>
+        <span class="chip pos">Lingue parlate</span>
+        <span class="chip pos">Disponibilità online</span>
+        <span class="chip pos">Tempi di attesa indicativi</span>
+        <span class="chip pos">Approccio clinico descritto</span>
+        <span class="chip pos">Testo fluido e contestuale</span>
+      </div>
+    </div>
+    <div class="signal-section">
+      <div class="signal-title">Segnali che abbassano la rilevanza</div>
+      <div class="chips">
+        <span class="chip neg">Testo generico e replicabile</span>
+        <span class="chip neg">Solo aggettivi senza sostanza</span>
+        <span class="chip neg">Nessun riferimento geografico</span>
+        <span class="chip neg">Solo titolo specialistico</span>
+        <span class="chip neg">Autoreferenzialità</span>
+        <span class="chip neg">Testo sotto le 80 parole</span>
+        <span class="chip neg">Nessuna patologia nominata</span>
+      </div>
+    </div>
+    <div class="insight-box">
+      <strong>Come funziona l'IA nella pratica:</strong> quando un paziente chiede "trovo una dermatologa a Roma Prati che segua bambini con eczema, disponibile entro questa settimana?", il sistema cerca il profilo che risponde meglio a <em>tutte</em> quelle dimensioni insieme: specializzazione, zona, tipo di paziente, patologia, disponibilità. Un testo vago non offre abbastanza segnali e viene semplicemente scartato. Non si tratta di "trucchi": si tratta di fornire le informazioni che il paziente stava già cercando.
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>Guida realizzata da <strong>MioDottore</strong> per i centri medici partner</span>
+  <span>Aggiornato maggio 2025</span>
+</footer>
+
+<script>
+function showSection(id, link) {
+  event.preventDefault();
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  link.classList.add('active');
+}
+
+function switchEx(which) {
+  const bad = document.getElementById('ex-bad');
+  const good = document.getElementById('ex-good');
+  const btnBad = document.getElementById('btn-bad');
+  const btnGood = document.getElementById('btn-good');
+  if (which === 'bad') {
+    bad.style.display = '';
+    good.style.display = 'none';
+    btnBad.className = 'ex-btn active-bad';
+    btnGood.className = 'ex-btn';
+  } else {
+    bad.style.display = 'none';
+    good.style.display = '';
+    btnGood.className = 'ex-btn active-good';
+    btnBad.className = 'ex-btn';
+  }
+}
+</script>
+</body>
+</html>

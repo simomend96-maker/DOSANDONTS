@@ -270,12 +270,12 @@ section.active { display: block; }
 /* CHIP */
 .chip.pos {
   background: var(--accent-light);
-  color: var(--accent);
+  color: var(--ink);
 }
 
 .chip.neg {
   background: var(--danger-light);
-  color: var(--danger);
+  color: var(--ink);
 }
 
 /* FOOTER */
@@ -418,16 +418,16 @@ footer {
   <section id="esempi">
     <p class="section-lead">
       Lo stesso profilo, due versioni. Clicca per confrontarle. Le parti evidenziate mostrano i segnali che l'IA legge — o ignora.
-    </p>
+    </p><br>
     <div class="ex-toggle">
       <button class="ex-btn active-bad" id="btn-bad" onclick="switchEx('bad')">Versione da evitare</button>
       <button class="ex-btn" id="btn-good" onclick="switchEx('good')">Versione ottimizzata</button>
-    </div>
+    </div><br>
     <div class="ex-content" id="ex-content">
       <div id="ex-bad">
         "Dermatologa con <span class='hi-bad'>esperienza ventennale</span>. Mi occupo di <span class='hi-bad'>tutta la dermatologia</span>. Studio <span class='hi-bad'>ben attrezzato</span> nel <span class='hi-bad'>centro di Roma</span>. <span class='hi-bad'>Massima professionalità e cura del paziente</span>. Prezzi competitivi. Contattare per appuntamento."
         <div class="score-row">
-          <span class="score-label">Rilevanza stimata per l'IA</span>
+          <span class="score-label"><h3>Rilevanza stimata per l'IA</h3></span>
           <div class="score-track"><div class="score-fill low"></div></div>
           <span class="score-num low">18 / 100</span>
         </div>
@@ -504,7 +504,7 @@ footer {
       </div>
     </div>
     <div class="insight-box">
-      <strong>Come funziona l'IA nella pratica:</strong> quando un paziente chiede "trovo una dermatologa a Roma Prati che segua bambini con eczema, disponibile entro questa settimana?", il sistema cerca il profilo che risponde meglio a <em>tutte</em> quelle dimensioni insieme: specializzazione, zona, tipo di paziente, patologia, disponibilità. Un testo vago non offre abbastanza segnali e viene semplicemente scartato. Non si tratta di "trucchi": si tratta di fornire le informazioni che il paziente stava già cercando.
+     <br> <strong>Come funziona l'IA nella pratica:</strong> quando un paziente chiede "trovo una dermatologa a Roma Prati che segua bambini con eczema, disponibile entro questa settimana?", il sistema cerca il profilo che risponde meglio a <em>tutte</em> quelle dimensioni insieme: specializzazione, zona, tipo di paziente, patologia, disponibilità. Un testo vago non offre abbastanza segnali e viene semplicemente scartato. Non si tratta di "trucchi": si tratta di fornire le informazioni che il paziente stava già cercando.
     </div>
   </section>
  

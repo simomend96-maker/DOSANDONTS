@@ -235,14 +235,15 @@ section.active { display: block; }
 }
 
 /* CHECK */
-.check-ico.ok {
-  background: var(--accent-light);
-  color: var(--accent);
+.check-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  color: var(--ink); /* testo nero */
 }
 
-.check-ico.ko {
-  background: var(--danger-light);
-  color: var(--danger);
+.check-ico.ok {
+  color: var(--accent);
 }
 
 /* CHIP */
@@ -275,7 +276,7 @@ footer {
   <img src="https://i.imgur.com/VDdRPvl.png" alt="Logo">
 </div>
   <div class="badge">Guida pratica · MioDottore</div>
-  <h1>Come scrivere il profilo<br>che l'intelligenza artificiale trova</h1>
+  <h1>Come entrare nei radar<br>dell'intelligenza artificiale</h1>
   <p class="intro">
     ChatGPT, Google Gemini e altri assistenti AI vengono usati ogni giorno da pazienti che cercano uno specialista. Questa guida spiega come ottimizzare la descrizione del tuo profilo per essere citato nelle loro risposte.
   </p>

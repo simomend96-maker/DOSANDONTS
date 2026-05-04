@@ -248,7 +248,19 @@ section.active { display: block; }
   border-radius: 4px;
   padding: 0 3px;
 }
-
+  .score-label { font-size: 0.75rem; color: var(--ink-faint); min-width: 100px; }
+  .score-track { flex: 1; height: 5px; background: var(--bg); border-radius: 3px; overflow: hidden; }
+  .score-fill { height: 100%; border-radius: 3px; }
+  .score-fill.low { background: var(--danger); width: 18%; }
+  .score-fill.high { background: var(--accent); width: 87%; }
+  .score-num { font-size: 0.8rem; font-weight: 500; min-width: 48px; text-align: right; }
+  .score-num.low { color: var(--danger); }
+  .score-num.high { color: var(--accent); }
+  .ex-note {
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+  }
 /* CHECK */
   .check-item {
   display: flex;
@@ -428,15 +440,15 @@ footer {
       <div id="ex-bad">
         "Dermatologa con <span class='hi-bad'>esperienza ventennale</span>. Mi occupo di <span class='hi-bad'>tutta la dermatologia</span>. Studio <span class='hi-bad'>ben attrezzato</span> nel <span class='hi-bad'>centro di Roma</span>. <span class='hi-bad'>Massima professionalità e cura del paziente</span>. Prezzi competitivi. Contattare per appuntamento."
         <div class="score-row">
-          <span class="score-label"><h3>Rilevanza stimata per l'IA</h3></span>
-          <div class="score-track"><div class="score-fill low"></div></div>
-          <span class="score-num low">18 / 100</span>
+          <span class="score-label">Rilevanza stimata per l'IA</span>
+          <div class="score-track"><div class="score-fill high"></div></div>
+          <span class="score-num high">17 / 100</span>
         </div>
       </div>
       <div id="ex-good" style="display:none;">
         "Dermatologa specializzata in <span class='hi-good'>dermatologia clinica ed estetica</span>, con focus su <span class='hi-good'>acne, rosacea, psoriasi e dermatiti atopiche</span>. Lo studio è a <span class='hi-good'>Roma Prati</span>, facilmente accessibile. Effettuo <span class='hi-good'>mappatura dei nei con dermoscopia digitale</span> e visite di controllo dermatologico completo. Seguo sia adulti che <span class='hi-good'>pazienti pediatrici</span> con patologie croniche della pelle. Disponibile anche per <span class='hi-good'>consulti online</span>. Parlo italiano e inglese. I tempi di attesa per la prima visita sono mediamente <span class='hi-good'>entro 7 giorni</span>."
-        <div class="score-row">
-          <span class="score-label"><h3>Rilevanza stimata per l'IA</h3></span>
+      <div class="score-row">
+          <span class="score-label">Rilevanza stimata per l'IA</span>
           <div class="score-track"><div class="score-fill high"></div></div>
           <span class="score-num high">87 / 100</span>
         </div>

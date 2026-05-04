@@ -189,13 +189,14 @@ section.active { display: block; }
 
 /* STEPS */
 .step {
-  padding: 1.5rem 0;
+  padding: 1.rem 0;
   border-bottom: 1px solid var(--border);
 }
 
 .step-num {
   font-weight: 600;
   margin-bottom: 0.5rem;
+  color: var(--docplanner);
 }
 
 /* EXAMPLES */
@@ -362,9 +363,8 @@ footer {
     </p>
     <div class="steps">
       <div class="step">
-        <div class="step-num">1</div>
+        <div class="step-num">1 Chi sei, in modo inequivocabile</div>
         <div class="step-body">
-          <h2>Chi sei, in modo inequivocabile</h2>
           <p>Prima frase: specializzazione, eventuale sotto-specializzazione e contesto geografico. Deve essere chiaro subito, senza doverlo dedurre.</p>
           <div class="step-example">
             "Cardiologa specializzata in cardiologia preventiva e scompenso cardiaco, attiva a Torino Crocetta."
@@ -372,9 +372,8 @@ footer {
         </div>
       </div>
       <div class="step">
-        <div class="step-num">2</div>
+        <div class="step-num">2 >Cosa tratti: condizioni specifiche, non solo branche</div>
         <div class="step-body">
-          <h2>Cosa tratti: condizioni specifiche, non solo branche</h2>
           <p>Nomina le patologie e le condizioni che gestisci. È esattamente quello che il paziente cerca. "Mi occupo di dermatologia" non basta: scrivi "acne, rosacea, psoriasi, dermatite atopica, controllo nei."</p>
         </div>
       </div>
@@ -475,9 +474,9 @@ footer {
   <section id="segnali">
     <p class="section-lead">
       Questi sono i fattori che i modelli di IA pesano quando devono rispondere a una domanda del tipo "trovo uno specialista a Roma che…".
-    </p>
+    </p><br>
     <div class="signal-section">
-      <div class="signal-title"><b>Segnali che aumentano la rilevanza</b></div><br>
+      <div class="signal-title"><b>Segnali che aumentano la rilevanza</b></div>
       <div class="chips">
         <span class="chip pos">Condizioni specifiche nominate</span>
         <span class="chip pos">Zona geografica precisa</span>
@@ -492,7 +491,7 @@ footer {
     </div>
     <br>
     <div class="signal-section">
-      <div class="signal-title"><b>Segnali che abbassano la rilevanza</b></div> <br>
+      <div class="signal-title"><b>Segnali che abbassano la rilevanza</b></div>
       <div class="chips">
         <span class="chip neg">Testo generico e replicabile</span>
         <span class="chip neg">Solo aggettivi senza sostanza</span>

@@ -240,11 +240,17 @@ section.active { display: block; }
   gap: 12px;
   align-items: flex-start;
   color: var(--ink); /* testo nero */
-      background: var(--accent-light);
+ 
 }
 
 .check-ico.ok {
   color: var(--accent);
+  background: var(--accent-light);
+}
+
+  .check-ico.ko {
+  color: var(--danger);
+  background: var(--danger-light);
 }
 
 /* CHIP */
@@ -429,7 +435,7 @@ footer {
       Prima di pubblicare o aggiornare la descrizione, verifica che questi elementi siano presenti. Più voci spunti, più il profilo è efficace per le ricerche via IA.
     </p>
     <div class="check-group">
-      <div class="check-group-title"><h3>Elementi da includere</h3>h3></div>
+      <div class="check-group-title"><h3>Elementi da includere</h3></div>
       <div class="check-list">
         <div class="check-item"><div class="check-ico ok">✓</div> <div>Specializzazione e sotto-specializzazione esplicite, non solo il titolo generico</div></div>
         <div class="check-item"><div class="check-ico ok">✓</div> <div>Almeno 3–5 condizioni o patologie trattate, nominate per esteso</div></div>
@@ -441,7 +447,7 @@ footer {
       </div>
     </div>
     <div class="check-group">
-      <div class="check-group-title"><h3>Segnali di allarme: riscrivi se presenti</h3>h3></div>
+      <div class="check-group-title"><h3>Segnali di allarme: riscrivi se presenti</h3></div>
       <div class="check-list">
         <div class="check-item"><div class="check-ico ko">✗</div> <div> Frasi come "il migliore", "esperienza pluriennale", "leader nel settore" senza contesto concreto</div></div>
         <div class="check-item"><div class="check-ico ko">✗</div> <div> Elenchi di parole chiave separate da virgole senza una frase che le contestualizzi</div></div>
